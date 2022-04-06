@@ -1,0 +1,8 @@
+FROM node:latest
+RUN mkdir Media-Scraper
+ADD . /Media-Scraper
+WORKDIR /Media-Scraper
+RUN npm install
+EXPOSE 5000    
+CMD [ "node", "server.js" ]      
+
