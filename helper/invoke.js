@@ -7,6 +7,12 @@
 
 const { open, query, close } = require('../db/index');
 
+/**
+ * Function used to get the overall count of the table
+ * @async
+ * @function pagenation
+ * @returns {Object} Status
+ */
 const pagenation = async () => {
     try {
         const queryText = 'SELECT count(*) AS exact_count FROM scrapper'
@@ -23,6 +29,12 @@ const pagenation = async () => {
     }
 }
 
+/**
+ * Function used to fetch data with limits
+ * @async
+ * @function fetchData
+ * @returns {Object} Status
+ */
 const fetchData = async () => {
     try {
         const queryText = 'SELECT * FROM scrapper LIMIT 8'
@@ -37,6 +49,13 @@ const fetchData = async () => {
     }
 }
 
+/**
+ * Function  used to fetch data from searched text
+ * @async
+ * @function searchByText
+ * @param {String} values search values
+ * @returns {Object} Status
+ */
 const searchByText = async (values) => {
     try {
         const queryText = `SELECT * FROM scrapper WHERE tags LIKE '%${values}%' LIMIT 8`
@@ -56,6 +75,13 @@ const searchByText = async (values) => {
 }
 
 
+/**
+ * Function used to get the previous and next values from the table with limits
+ * @async
+ * @function pagenationQuery
+ * @param {Object} params object has values - search value, offset from, is from search text or not
+ * @returns {Object} Status
+ */
 const pagenationQuery = async (params) => {
     try {
         let queryText

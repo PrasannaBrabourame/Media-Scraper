@@ -8,6 +8,11 @@
 require('dotenv').config()
 const { Pool } = require('pg')
 
+/**
+ * Helper function for database 
+ * @async
+ * @returns {function} Status
+ */
 module.exports = {
     open: () => new Pool({
         user: process.env.PGUSER,

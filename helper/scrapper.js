@@ -8,7 +8,13 @@
 const puppeteer = require('puppeteer');
 const { open, query, close } = require('../db/index');
 
-
+/**
+ * Function used to scrape the img and video tag from given array of url's
+ * @async
+ * @function scarapper
+ * @param {Array} scarpURL To be scrapped URL
+ * @returns {Object} Status
+ */
 const scarapper = async (scarpURL) => {
     let browser;
     try {

@@ -4,7 +4,15 @@
  * Version      :  1.0.0                                                        *
  * Date         :  05 Apr 2022                                                  *
  ********************************************************************************/
-const { pagenation, fetchData, searchByText,pagenationQuery} = require('../helper/invoke');
+const { pagenation, fetchData, searchByText, pagenationQuery } = require('../helper/invoke');
+
+
+/**
+ * Function used to get the overall count of the table
+ * @async
+ * @function reqPagenation
+ * @returns {Object} Status
+ */
 const reqPagenation = async (req, res, next) => {
     try {
         const response = await pagenation()
@@ -27,6 +35,12 @@ const reqPagenation = async (req, res, next) => {
     }
 }
 
+/**
+ * Function used to fetch data with limits
+ * @async
+ * @function reqFetchData
+ * @returns {Object} Status
+ */
 const reqFetchData = async (req, res, next) => {
     try {
         const response = await fetchData()
@@ -47,6 +61,13 @@ const reqFetchData = async (req, res, next) => {
     }
 }
 
+/**
+ * Function  used to fetch data from searched text
+ * @async
+ * @function reqFetchByTextData
+ * @param {String} values search values
+ * @returns {Object} Status
+ */
 const reqFetchByTextData = async (req, res, next) => {
     try {
         const response = await searchByText(req.body.values)
@@ -67,6 +88,13 @@ const reqFetchByTextData = async (req, res, next) => {
     }
 }
 
+/**
+ * Function used to get the previous and next values from the table with limits
+ * @async
+ * @function reqPagenatedQuery
+ * @param {Object} params object has values - search value, offset from, is from search text or not
+ * @returns {Object} Status
+ */
 const reqPagenatedQuery = async (req, res, next) => {
     try {
         const response = await pagenationQuery(req.body)
@@ -87,4 +115,4 @@ const reqPagenatedQuery = async (req, res, next) => {
     }
 }
 
-module.exports = { reqPagenation, reqFetchData, reqFetchByTextData,reqPagenatedQuery}
+module.exports = { reqPagenation, reqFetchData, reqFetchByTextData, reqPagenatedQuery }

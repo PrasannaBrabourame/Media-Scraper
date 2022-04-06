@@ -6,6 +6,14 @@
  ********************************************************************************/
 
 const { scarapper } = require('../helper/scrapper')
+
+/**
+ * Function used to scrape the img and video tag from given array of url's
+ * @async
+ * @function scarapper
+ * @param {Array} scarpURL To be scrapped URL
+ * @returns {Object} Status
+ */
 const dataScrapper = (req, res, next) => {
     try {
         if (req.headers['x-application-id'] === process.env.APPLICATION_ID && req.headers['x-rest-api-key'] === process.env.REST_API_KEY) {
@@ -28,6 +36,14 @@ const dataScrapper = (req, res, next) => {
     }
 }
 
+
+/**
+ * Function used to scrape the img and video tag from given array of url's
+ * @async
+ * @function scarapper
+ * @param {Array} scarpURL To be scrapped URL
+ * @returns {Object} Status
+ */
 const scrapperTrigger = async (weburlsArr) => {
     Promise.all(weburlsArr.map(async (weburl) => {
         await scarapper(weburl)
