@@ -8,6 +8,9 @@ Vaccination Center FrontEnd
 ## Requirements
 
   - Node >= 14.17.2
+  - Postgress database
+
+Postgress configration need to be updated in .env file.
 
 ## Installation
 
